@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
  * @date 2023-05-31
  */
 @Mapper
-@Repository
 public interface AdminMapper extends BaseMapper<Admin> {
 
 }
