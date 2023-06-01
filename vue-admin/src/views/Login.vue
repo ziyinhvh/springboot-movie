@@ -55,7 +55,7 @@
       <div class="login-form-footer">
         <div style="font-weight: bolder;font-size: 16px;color: #91949c;"
              :underline="false">
-          Copyright 2021 小小影院 - 后台管理
+          Copyright 2023 小小影院 - 后台管理
         </div>
       </div>
     </div>

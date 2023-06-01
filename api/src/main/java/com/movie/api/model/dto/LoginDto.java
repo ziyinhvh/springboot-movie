@@ -2,18 +2,17 @@ package com.movie.api.model.dto;
 
 import lombok.Data;
 
+
 /**
- * @author CY
- * @description 登录dto
- * @date 2023-05-31
+ * 登录信息数据传输对象，用于封装用户登录信息
  */
 @Data
 public class LoginDto {
 
-    private String username;
+    private String username; // 用户名
 
-    private String password;
+    private String password; // 密码
 
-    private boolean remember;
+    private boolean remember; // 是否记住我
 
 }
