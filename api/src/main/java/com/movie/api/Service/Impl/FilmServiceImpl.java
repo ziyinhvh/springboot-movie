@@ -71,18 +71,6 @@ public class FilmServiceImpl implements FilmService {
     }
 
     /**
-     * 获取热门电影信息列表
-     * @param limit 获取的电影数量
-     * @return 热门电影信息列表
-     */
-//    @Override
-//    public List findHots(Integer limit) {
-//        QueryWrapper wrapper = new QueryWrapper<>();
-//        wrapper.orderByDesc("hot").last("limit " + limit);
-//        return filmMapper.selectList(wrapper);
-//    }
-
-    /**
      * 根据电影名模糊查询电影信息列表
      * @param name 电影名
      * @return 符合条件的电影信息列表
