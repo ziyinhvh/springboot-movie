@@ -24,7 +24,6 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
      * 在Controller方法执行完毕，返回结果之前对返回结果进行封装
-     *
      * @param o                  Controller方法的返回结果
      * @param methodParameter    Controller方法的参数信息，包括方法名、参数类型、注解等信息
      * @param mediaType          返回结果的媒体类型
