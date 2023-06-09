@@ -54,9 +54,6 @@
               <router-link to="/order/list">
                 <el-menu-item style="padding-left: 70px" index="6-1">订单列表</el-menu-item>
               </router-link>
-              <router-link to="/order/exception">
-                <el-menu-item style="padding-left: 70px" index="6-2">异常订单</el-menu-item>
-              </router-link>
             </el-menu-item-group>
           </el-submenu>
 

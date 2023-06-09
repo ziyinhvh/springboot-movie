@@ -9,4 +9,5 @@ public class Roles {
      * 系统管理员角色名称
      */
     public final static String ROLE_ADMIN = "ROLE_ADMIN";
+    public final static String ROLE_USER = "ROLE_USER";
 }

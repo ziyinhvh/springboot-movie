@@ -47,10 +47,6 @@ const routes = [
                 path: '/order/list',
                 component: () => import("@/views/order/List")
             },
-            {
-                path: '/order/exception',
-                component: () => import("@/views/order/Exception")
-            },
 
             {
                 path: '/worker/list',

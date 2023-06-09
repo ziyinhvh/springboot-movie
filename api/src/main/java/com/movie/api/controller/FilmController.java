@@ -3,6 +3,7 @@ package com.movie.api.controller;
 import com.movie.api.model.entity.Film;
 import com.movie.api.service.FilmService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -37,6 +38,17 @@ public class FilmController {
             return filmService.findByRegionAndType(region, type);
         }
         return filmService.findAll();
+    }
+
+    /**
+     * 根据请求路径中的参数limit获取指定数量的热门电影列表
+     * @param limit 请求路径中的参数，限制返回的电影数量
+     * @return 返回热门电影列表
+     */
+    @GetMapping("/hot/{limit}")
+    @ApiOperation("获取热榜电影")
+    public List<Film> listHots(@PathVariable Integer limit) {
+        return filmService.findHots(limit);
     }
 
     /**

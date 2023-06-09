@@ -5,69 +5,69 @@ import com.movie.api.model.entity.Film;
 import java.util.List;
 
 /**
- * 电影服务接口，定义电影相关的业务方法
+ * FilmService接口定义了对电影信息进行操作的方法。
  */
 public interface FilmService {
 
     /**
-     * 保存电影信息
+     * 将电影信息保存到数据库中。
      *
-     * @param film 电影实体类对象
+     * @param film 要保存的电影信息。
      */
     void save(Film film);
 
     /**
-     * 根据电影ID删除电影信息
+     * 根据电影ID从数据库中删除电影信息。
      *
-     * @param id 电影ID
+     * @param id 要删除的电影ID。
      */
     void deleteById(String id);
 
     /**
-     * 获取所有电影信息
+     * 查询数据库中所有电影信息。
      *
-     * @return 所有电影信息的列表
+     * @return 包含所有电影信息的列表。
      */
-    List findAll();
+    List<Film> findAll();
 
     /**
-     * 根据地区和类型查询电影信息列表
+     * 根据地区和类型查询电影信息。
      *
-     * @param region 地区
-     * @param type   类型
-     * @return 符合条件的电影信息列表
+     * @param region 地区。
+     * @param type   类型。
+     * @return 符合条件的电影信息列表。
      */
-    List findByRegionAndType(String region, String type);
+    List<Film> findByRegionAndType(String region, String type);
 
     /**
-     * 获取热门电影信息列表
+     * 获取热门电影信息。
      *
-     * @param limit 获取的电影数量
-     * @return 热门电影信息列表
+     * @param limit 最多返回的电影数量。
+     * @return 包含热门电影信息的列表。
      */
-//    List findHots(Integer limit);
+    List<Film> findHots(Integer limit);
 
     /**
-     * 根据电影名模糊查询电影信息列表
+     * 根据电影名模糊查询电影信息。
      *
-     * @param name 电影名
-     * @return 符合条件的电影信息列表
+     * @param name 电影名。
+     * @return 符合条件的电影信息列表。
      */
-    List findLikeName(String name);
+    List<Film> findLikeName(String name);
 
     /**
-     * 根据电影ID获取电影信息
+     * 根据电影ID查询电影信息。
      *
-     * @param id 电影ID
-     * @return 电影实体类对象
+     * @param id 电影ID。
+     * @return 包含电影信息的Film对象。
      */
     Film findById(String id);
 
     /**
-     * 更新电影信息
+     * 更新电影信息。
      *
-     * @param film 电影实体类对象
-     * @return 更新后的电影实体类对象
+     * @param film 包含要更新的电影信息的Film对象。
+     * @return 更新后的电影信息。
      */
     Film update(Film film);
 
