@@ -48,7 +48,8 @@
 
         <el-form-item label="上映时间">
           <el-col :span="11">
-            <el-date-picker type="date" value-format="yyyy年-MM月-dd日" placeholder="选择日期" v-model="form.releaseTime" style="width: 100%;"></el-date-picker>
+            <el-date-picker type="date" value-format="yyyy年-MM月-dd日" placeholder="选择日期"
+                            v-model="form.releaseTime" style="width: 100%;"></el-date-picker>
           </el-col>
         </el-form-item>
 
@@ -123,11 +124,13 @@
 
         <el-form-item style="width: 500px" label="放映时间">
           <el-col :span="11">
-            <el-time-picker placeholder="开始时间" value-format="HH:mm:ss" v-model="arrangement.startTime" style="width: 100%;"></el-time-picker>
+            <el-time-picker placeholder="开始时间" value-format="HH:mm:ss" v-model="arrangement.startTime"
+                            style="width: 100%;"></el-time-picker>
           </el-col>
           <el-col style="text-align: center" class="line" :span="2">-</el-col>
           <el-col :span="11">
-            <el-time-picker placeholder="结束时间" value-format="HH:mm:ss" v-model="arrangement.endTime" style="width: 100%;"></el-time-picker>
+            <el-time-picker placeholder="结束时间" value-format="HH:mm:ss" v-model="arrangement.endTime"
+                            style="width: 100%;"></el-time-picker>
           </el-col>
         </el-form-item>
 
@@ -157,7 +160,7 @@
               style="width: 100px; height: 145px"
               :src="scope.row.cover">
           </el-image>
-          <div style="font-size: 10px;padding-top: 5px;padding-left: 3px">{{scope.row.name}}</div>
+          <div style="font-size: 10px;padding-top: 5px;padding-left: 3px">{{ scope.row.name }}</div>
         </template>
       </el-table-column>
 
@@ -240,7 +243,7 @@ import config from "@/config";
 export default {
   data() {
     return {
-      header:{
+      header: {
         "Authorization": localStorage.getItem("token")
       },
       uploadAction: config.API_URL + '/upload',
@@ -276,11 +279,11 @@ export default {
 
   mounted() {
     this.tableLoading = true;
-    ListAllFilm().then(res=>{
-      setTimeout(()=>{
+    ListAllFilm().then(res => {
+      setTimeout(() => {
         this.filmList = res.data;
         this.tableLoading = false;
-      },700)
+      }, 700)
     })
   },
 
@@ -288,14 +291,24 @@ export default {
 
     submitUpdate() {
       this.form.cover = this.url;
-      UpdateFilm(this.form).then(res=>{
+      UpdateFilm(this.form).then(res => {
         this.dialog1 = false;
+        this.$message({
+          message: '修改电影成功！',
+          type: 'success'
+        });
       })
     },
 
     submitArrange() {
-      AddArrangement(this.arrangement).then(res=>{
-        this.dialog2 = false;
+      AddArrangement(this.arrangement).then(res => {
+        if (res.success) {
+          this.dialog2 = false;
+          this.$message({
+            message: '新增排片成功！',
+            type: 'success'
+          });
+        }
       })
     },
 
@@ -311,7 +324,7 @@ export default {
     },
 
     handleDelete(index, row) {
-      DeleteById(row.id).then(res=>{
+      DeleteById(row.id).then(res => {
         this.filmList.splice(index, 1)
         this.$message({
           message: '电影《' + row.name + '》删除成功！',
@@ -320,7 +333,7 @@ export default {
       })
     },
 
-    handleUploadSuccess(res){
+    handleUploadSuccess(res) {
       this.url = res;
     },
 

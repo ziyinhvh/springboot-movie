@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p> Copyright 2021 小小影院</p>
+    <p> Copyright 2023 嗷呜影院</p>
     <p>京公网安备 1101010110110110号 京ICP备123456789号-1</p>
   </div>
 </template>

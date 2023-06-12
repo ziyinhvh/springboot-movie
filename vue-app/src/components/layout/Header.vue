@@ -3,12 +3,12 @@
     <div style="height: 70px;width: 100%">
       <div class="header-logo">
         <img style="width: 50px; height: 50px;float: left" src="../../assets/img/logo.png" alt=""/>
-        <div class="header-logo-text">小小影院</div>
+        <div class="header-logo-text">嗷呜影院</div>
       </div>
       <div class="header-links">
         <el-link href="/" class="header-link" :underline="false">首页</el-link>
         <el-link href="/films?region=全部&type=全部" class="header-link" :underline="false">电影</el-link>
-        <el-link href="/active" class="header-link" :underline="false">活动</el-link>
+<!--        <el-link href="/active" class="header-link" :underline="false">活动</el-link>-->
         <el-link href="/leaving" class="header-link" :underline="false">留言</el-link>
       </div>
 

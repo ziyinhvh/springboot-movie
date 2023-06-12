@@ -43,13 +43,18 @@ public class ArrangementController {
     }
 
     @GetMapping("")
-    @ApiOperation("列出电影排片")
+    @ApiOperation("查询所有电影排片")
     public List<Arrangement> list() {
         return arrangementService.findAll();
     }
 
+    /**
+     * 根据排片ID查询排片信息
+     * @param id 排片ID
+     * @return 包含电影信息和排片信息的Map对象
+     */
     @GetMapping("/{id}")
-    @ApiOperation("查询排片")
+    @ApiOperation("根据id查询排片")
     public Map<String, Object> findById(@PathVariable String id) {
         HashMap<String, Object> map = new HashMap<>();
         Arrangement arrangement = arrangementService.findById(id);
@@ -57,6 +62,7 @@ public class ArrangementController {
         map.put("arrangement", arrangement);
         return map;
     }
+
 
     @GetMapping("/getSeats")
     @ApiOperation("获取座位情况")

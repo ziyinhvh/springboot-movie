@@ -66,6 +66,7 @@
 
 <script>
 import {AddFilmEvaluate, FindFilmById, FindFilmEvaluateByFId} from "@/api/film";
+import {MessageBox} from "element-ui";
 
 export default {
   name: "Film",
@@ -91,22 +92,25 @@ export default {
   methods: {
 
     openComment() {
-      if (!localStorage.getItem("uid")) {
-        this.$confirm('系统还没有检测到您的登陆信息, 是否去登录?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$router.push("/login")
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消为电影评分'
-          });
-        });
-      } else {
-        this.dialogVisible = true
-      }
+      // if (!localStorage.getItem("uid")) {
+      //   this.$confirm('系统还没有检测到您的登陆信息, 是否去登录?', '提示', {
+      //     confirmButtonText: '确定',
+      //     cancelButtonText: '取消',
+      //     type: 'warning'
+      //   }).then(() => {
+      //     this.$router.push("/login")
+      //   }).catch(() => {
+      //     this.$message({
+      //       type: 'info',
+      //       message: '已取消为电影评分'
+      //     });
+      //   });
+      // } else {
+      //   this.dialogVisible = true
+      // }
+      MessageBox.alert('该功能正在开发中，敬请期待', '提示', {
+        confirmButtonText: '确定',
+      });
     },
 
     submitComment() {

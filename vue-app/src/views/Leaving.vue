@@ -108,6 +108,8 @@ import {
   ListWorkerEvaluate
 } from "@/api/leaving";
 
+import { MessageBox } from 'element-ui';
+
 export default {
 
   data() {
@@ -149,15 +151,21 @@ export default {
   methods: {
 
     handleListEvaluate(item) {
-      this.dialogFormVisible3 = true
-      ListWorkerEvaluate(item.id).then(res => {
-        this.evaluateList = res.data
-      })
+      // this.dialogFormVisible3 = true
+      // ListWorkerEvaluate(item.id).then(res => {
+      //   this.evaluateList = res.data
+      // })
+      MessageBox.alert('该功能正在开发中，敬请期待', '提示', {
+        confirmButtonText: '确定',
+      });
     },
 
     handleEvaluate(item) {
-      this.dialogFormVisible1 = true
-      this.evaluate.wid = item.id
+      // this.dialogFormVisible1 = true
+      // this.evaluate.wid = item.id
+      MessageBox.alert('该功能正在开发中，敬请期待', '提示', {
+        confirmButtonText: '确定',
+      });
     },
 
     handleLeaving() {
@@ -181,7 +189,7 @@ export default {
         if (res.success) {
           this.dialogFormVisible2 = false
           this.$message({
-            message: '感谢您对小小电影留下的宝贵意见',
+            message: '感谢您对嗷呜电影留下的宝贵意见',
             type: 'success'
           });
         }

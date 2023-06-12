@@ -63,10 +63,6 @@
                      :disabled="scope.row.order.status === 3"
                      plain>撤销订单
           </el-button>
-          <el-button @click="handle2(scope.$index, scope.row.order)" size="small" type="danger"
-                     icon="el-icon-circle-close"
-                     plain>上报异常
-          </el-button>
         </template>
       </el-table-column>
     </el-table>

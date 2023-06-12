@@ -30,7 +30,7 @@ public class DailyWorkController {
     }
 
     @GetMapping("")
-    @ApiOperation("查询所有")
+    @ApiOperation("查询所有工作")
     public List<DailyWork> findAll(){
         return dailyWorkService.findAll();
     }

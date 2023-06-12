@@ -6,6 +6,9 @@ import com.movie.api.model.entity.Order;
 import com.movie.api.model.entity.User;
 import lombok.Data;
 
+/**
+ * 订单前端展示
+ */
 @Data
 public class OrderVO {
 

@@ -155,6 +155,7 @@ export default {
       AddPoster(this.uploadPoster).then(res => {
         console.log(res)
         this.dialogFormVisible = false;
+        window.location.reload(); // 刷新页面
       })
     },
 

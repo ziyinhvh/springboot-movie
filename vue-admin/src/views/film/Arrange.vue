@@ -1,16 +1,73 @@
 <template>
   <div class="main">
 
-    <el-dialog
-        title="新增电影排片"
-        :visible.sync="dialog"
-        width="50%">
+    <!--    <el-dialog-->
+    <!--        title="新增电影排片"-->
+    <!--        :visible.sync="dialog"-->
+    <!--        width="50%">-->
 
+    <!--      <el-form ref="form" :model="arrangement" label-width="80px">-->
+
+    <!--        <el-form-item label="电影名称">-->
+    <!--          <el-input :disabled="true" v-model="arrangement.name"></el-input>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item label="开放座位">-->
+    <!--          <el-input-number v-model="arrangement.seatNumber" :min="10" :max="100"></el-input-number>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item label="放映类型">-->
+    <!--          <el-select v-model="arrangement.type" placeholder="请选择放映类型">-->
+    <!--            <el-option label="2D 放映" value="2D放映"></el-option>-->
+    <!--            <el-option label="3D 放映" value="3D放映"></el-option>-->
+    <!--          </el-select>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item style="width: 500px" label="放映日期">-->
+    <!--          <el-col :span="11">-->
+    <!--            <el-date-picker type="date" placeholder="选择日期" v-model="arrangement.date"-->
+    <!--                            value-format="yyyy-MM-dd" style="width: 100%;"></el-date-picker>-->
+    <!--          </el-col>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item style="width: 500px" label="放映时间">-->
+    <!--          <el-col :span="11">-->
+    <!--            <el-time-picker placeholder="开始时间" value-format="HH:mm:ss" v-model="arrangement.startTime"-->
+    <!--                            style="width: 100%;"></el-time-picker>-->
+    <!--          </el-col>-->
+    <!--          <el-col style="text-align: center" class="line" :span="2">-</el-col>-->
+    <!--          <el-col :span="11">-->
+    <!--            <el-time-picker placeholder="结束时间" value-format="HH:mm:ss" v-model="arrangement.endTime"-->
+    <!--                            style="width: 100%;"></el-time-picker>-->
+    <!--          </el-col>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item label="电影票价">-->
+    <!--          <el-input-number v-model="arrangement.price" :precision="2" :step="0.1" :max="999.99"></el-input-number>-->
+    <!--        </el-form-item>-->
+
+    <!--        <el-form-item label="排片人">-->
+    <!--          <el-input type="textarea" v-model="arrangement.founder"></el-input>-->
+    <!--        </el-form-item>-->
+    <!--      </el-form>-->
+
+    <!--      <span slot="footer" class="dialog-footer">-->
+    <!--        <el-button @click="dialog = false">取 消</el-button>-->
+    <!--        <el-button type="primary" @click="submitEditArrange">确 定</el-button>-->
+    <!--      </span>-->
+    <!--    </el-dialog>-->
+    <el-dialog title="修改电影排片" :visible.sync="dialog" width="50%">
       <el-form ref="form" :model="arrangement" label-width="80px">
 
         <el-form-item label="电影名称">
           <el-input :disabled="true" v-model="arrangement.name"></el-input>
         </el-form-item>
+
+        <
+        <el-form-item label="排片ID" style="display:none">
+          <el-input v-model="arrangement.id"></el-input>
+        </el-form-item>
+        >
 
         <el-form-item label="开放座位">
           <el-input-number v-model="arrangement.seatNumber" :min="10" :max="100"></el-input-number>
@@ -52,10 +109,11 @@
       </el-form>
 
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialog = false">取 消</el-button>
-        <el-button type="primary" @click="submitEditArrange">确 定</el-button>
-      </span>
+    <el-button @click="dialog = false">取 消</el-button>
+    <el-button type="primary" @click="submitModifyArrange">修 改</el-button>
+  </span>
     </el-dialog>
+
 
     <el-table
         v-loading="loading"
@@ -108,12 +166,12 @@
               placeholder="输入关键字搜索"/>
         </template>
         <template style="white-space: nowrap" slot-scope="scope">
-          <el-button
-              size="mini"
-              icon="el-icon-s-ticket"
-              type="success"
-              @click="handleBoxOffice(scope.$index, scope.row)">统计票房
-          </el-button>
+          <!--          <el-button-->
+          <!--              size="mini"-->
+          <!--              icon="el-icon-s-ticket"-->
+          <!--              type="success"-->
+          <!--              @click="handleBoxOffice(scope.$index, scope.row)">统计票房-->
+          <!--          </el-button>-->
           <el-button
               size="mini"
               icon="el-icon-edit"
@@ -193,12 +251,24 @@ export default {
       this.arrangement = row;
     },
 
-    submitEditArrange() {
+    // submitEditArrange() {
+    //   UpdateArrangement(this.arrangement).then(res => {
+    //     if (res.success) {
+    //       this.dialog = false;
+    //       this.$message({
+    //         message: '排片添加成功！',
+    //         type: 'success'
+    //       });
+    //     }
+    //   })
+    // },
+
+    submitModifyArrange() {
       UpdateArrangement(this.arrangement).then(res => {
         if (res.success) {
           this.dialog = false;
           this.$message({
-            message: '排片添加成功！',
+            message: '修改排片成功！',
             type: 'success'
           });
         }

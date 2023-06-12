@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * 电影排片前端展示
+ */
 @Data
 @AllArgsConstructor
 public class ArrangementVO {
