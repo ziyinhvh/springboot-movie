@@ -25,17 +25,18 @@ public class FilmServiceImpl implements FilmService {
         filmMapper.insert(film);
     }
 
-    @CacheEvict
+    @CacheEvict(value = {"filmsByName", "filmById", "allFilms"}, allEntries = true)
     @Override
     public void deleteById(String id) {
         filmMapper.deleteById(id);
     }
 
-    @Cacheable
+    @Cacheable(value = "allFilms")
     @Override
     public List<Film> findAll() {
         return filmMapper.selectList(null);
     }
+
 
     @Override
     public List<Film> findByRegionAndType(String region, String type) {
@@ -56,7 +57,7 @@ public class FilmServiceImpl implements FilmService {
         return filmMapper.selectList(wrapper);
     }
 
-    @Cacheable
+    @Cacheable(value = "filmsByName", key = "#name")
     @Override
     public List<Film> findLikeName(String name) {
         QueryWrapper<Film> wrapper = new QueryWrapper<>();
@@ -64,17 +65,18 @@ public class FilmServiceImpl implements FilmService {
         return filmMapper.selectList(wrapper);
     }
 
-    @Cacheable
+    @Cacheable(value = "filmById", key = "#id")
     @Override
     public Film findById(String id) {
         return filmMapper.selectById(id);
     }
 
-    @CacheEvict
+    @CacheEvict(value = {"filmsByName", "filmById"}, key = "#film.id", allEntries = true)
     @Override
     public Film update(Film film) {
         filmMapper.updateById(film);
         return film;
     }
+
 
 }

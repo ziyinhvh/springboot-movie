@@ -54,7 +54,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    @Cacheable
+    @Cacheable(value = "cart", key = "#uid")
     public List<CartVO> findAllByUserId(String uid) {
         List<CartVO> result = new ArrayList<>();
         List<Cart> carts = cartMapper.selectList(new QueryWrapper<Cart>().in("uid", uid));
