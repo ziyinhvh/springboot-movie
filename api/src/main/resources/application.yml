@@ -1,20 +1,28 @@
 server:
   port: 8888
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/movie?characterEncoding=utf8&serverTimezone=UTC
     username: root
     password: root
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+
   cache:
+    type: redis
     redis:
-      #使用前缀
-      use-key-prefix: true
-      #redis过期时间
       time-to-live: 60s
+      cache-null-values: false
+      use-key-prefix: true
+
 mybatis-plus:
   global-config:
     db-config:
       id-type: uuid
-      #schema: classpath:/sql/schema.sql
   type-aliases-package: com.movie.api.model.entity

@@ -28,7 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * HTTP验证规则
-     *
      * @param http h
      * @throws Exception e
      */
@@ -41,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         //允许跨域使用iframe
         http.headers().frameOptions().disable();
 
-        //禁用session
+        //禁用session 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         //身份验证失败
